@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="container aline='center'" >
+    <div class ="row">
+      <div class="">
+        <div class="card mt-50">
+          <div class="card_body"><br>
+             <form id="form.register" class="form" action="/register_validation" method="POST">
+                  <div class="" align="center">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    <ul class=flashes>
+                        {% for category, message in messages %}
+                          <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+              </div>
+             <label>Enter your email i'd </label><br>
+              <input type="email" name="r-email" class="form-control" placeholder="registre email id" required autofocus><br>
+              <label>Username for your account</label><br>
+              <input type="text" name="r-username" class="form-control" placeholder="Enter Username" required autofocus><br>
+              <label>Password</label><br>
+              <input type="password" name="r-password" class="form-control" placeholder="Password" required ><br>
+              <label>Confirm Password</label><br>
+              <input type="password" name="r-cpassword" class="form-control" placeholder="Confirm Password" required ><br>
+              <input type="Submit" class="btn btn-info btn-block btn-lg" value="Register"><br>
+              <input type="Reset" class="btn btn-info btn-lg btn-block" value="Reset">
+
+            </form>
+            <p>Already a member?<a href="/login"> Login Here</a></p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
